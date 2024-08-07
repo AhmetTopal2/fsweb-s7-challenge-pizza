@@ -13,16 +13,47 @@ function Frame1() {
     <>
       <div className="w-full  bg-[#FAF7F2]">
         <div className="flex justify-center gap-3 py-16">
-          <div className="bg-slate-500 w-[530px] left-div h-[450px] rounded-3xl"></div>
+          <div className="bg-slate-500 w-[530px] left-div h-[450px] rounded-3xl">
+            <h1 className="text-5xl font-bold text-white mt-8 ml-8 ">
+              Özel <br /> Lezzetus
+            </h1>
+            <p className="text-xl text-white mt-2  ml-8 ">
+              Position : Absolute Acı Pizza
+            </p>
+            <button
+              className="w-[150px] h-14 bg-white mt-6 ml-8 rounded-3xl text-[#CE2829] font-bold"
+              onClick={() => history.push("/pizzaOrder")}
+            >
+              Siparis Ver
+            </button>
+          </div>
           <div className=" w-[530px] flex flex-col gap-2">
-            <div className="h-1/2 right-div-one rounded-3xl"></div>
-            <div className="h-1/2 right-div-two rounded-3xl"></div>
+            <div className="h-1/2 right-div-one rounded-3xl">
+              <h1 className="text-[32px] font-bold text-white mt-8 ml-8 ">
+                Hackathlon <br /> Burger Menü
+              </h1>
+              <button className="w-[150px] h-14 bg-white mt-4 ml-8 rounded-3xl text-[#CE2829] font-bold">
+                Siparis Ver
+              </button>
+            </div>
+            <div className="h-1/2 right-div-two rounded-3xl">
+              <h1 className="text-[32px] font-bold text-black mt-8 ml-8 ">
+                {" "}
+                <strong className="text-[#D80027]">
+                  Çoooook hızlı
+                </strong> <br /> npm gibi kurye{" "}
+              </h1>
+              <button className="w-[150px] h-14 bg-white mt-4 ml-8 rounded-3xl text-[#CE2829] font-bold">
+                Siparis Ver
+              </button>
+            </div>
           </div>
         </div>
         <div className=" text-center">
           <h1 className="text-5xl font-bold text-black">
             Acıktıran Kodlara Doyuran Lezzetler
           </h1>
+
           <div className="flex gap-12 justify-center py-7">
             <div className="flex gap-3 items-center bg-white rounded-3xl p-3">
               <img src={icon1} alt="" />
@@ -80,7 +111,6 @@ function Frame1() {
               <div className="bg-white">
                 <img src={food3} alt="" className="bg-white" />
                 <p className="text-xl font-bold">useEffect Tavuklu Burger</p>
-
                 <div className="flex justify-evenly mt-2">
                   <p className="text-xl">50TL</p>
                   <div className="flex gap-3">

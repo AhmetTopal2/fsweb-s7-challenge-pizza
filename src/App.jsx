@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import PizzaOrder from "./pages/PizzaOrder";
 import PizzaSuccess from "./pages/PizzaSuccess";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/pizzaOrder" component={PizzaOrder} />
         <Route exact path="/pizzaSuccess" component={PizzaSuccess} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </>
   );

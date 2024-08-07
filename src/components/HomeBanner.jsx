@@ -1,8 +1,10 @@
 import React from "react";
 import logo from "../../Assets/Iteration-1-assets/logo.svg";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Button from "./Button";
+
 function HomeBanner() {
-    const history = useHistory();
+  const history = useHistory();
   return (
     <div className="w-full h-svh home">
       <div className="w-full flex justify-center pt-14">
