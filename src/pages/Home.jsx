@@ -1,11 +1,17 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-
+import React from "react";
+import HomeBanner from "../components/HomeBanner";
+import Icons from "../components/Icons";
+import Footer from "../components/Footer";
+import Frame1 from "../components/Frame1";
 function Home() {
-    const history = useHistory()
   return (
-    <button onClick={() => history.push('/pizzaOrder')}>OrderPage</button>
-  )
+    <>
+      <HomeBanner />
+      <Icons />
+      <Frame1 />
+      <Footer />
+    </>
+  );
 }
 
-export default Home
+export default Home;

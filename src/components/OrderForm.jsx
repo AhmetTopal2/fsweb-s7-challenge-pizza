@@ -1,49 +1,112 @@
-import React from "react";
+import React, { useState } from "react";
 
 function OrderForm() {
+  const [checked, setChecked] = useState(false);
+  const ingredients = [
+    "Pepperoni",
+    "Tavuk Izgara",
+    "Mısır",
+    "Sarımsak",
+    "Ananas",
+    "Sosis",
+    "Soğan",
+    "Sucuk",
+    "Biber",
+    "Kabak",
+    "Jambon",
+    "Domates",
+    "Jalapeno",
+    "Beyaz Peynir",
+    "Peynir",
+  ];
+
   return (
-    <div className="flex justify-center mt-12">
+    <div className="flex flex-col items-center mt-12 mb-28">
       <form action="" className="w-[590px]">
-        <div className="w-full flex justify-between">
+        <div className="flex justify-between w-full">
           <div>
             <h1 className="font-bold text-xl">
               Boyut Seç <span className="text-[#CE2829]">*</span>
             </h1>
-            <div className="mt-5 flex gap-5">
-              <button className="w-[56px] h-[56px] border rounded-full bg-[#FAF7F2]">
-                S
-              </button>
-              <button className="w-[56px] h-[56px] border rounded-full bg-[#FAF7F2]">
-                M
-              </button>
-              <button className="w-[56px] h-[56px] border rounded-full bg-[background: #FFEECC]">
-                L
-              </button>
+            <div className="flex gap-5 mt-5">
+              {["S", "M", "L"].map((size, index) => (
+                <button
+                  key={index}
+                  className={`w-[56px] h-[56px] border rounded-full bg-[#FAF7F2]"
+                  }`}
+                >
+                  {size}
+                </button>
+              ))}
             </div>
           </div>
-          <div className="">
+          <div>
             <h1 className="font-bold text-xl mb-2">
               Hamur Seç <span className="text-[#CE2829]">*</span>
             </h1>
-            <div className="text-left">
-              <select className="border rounded-md p-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#CE2829]">
-                <option value="" disabled>
-                  Select an option
-                </option>
-                <option value="thin">İnce Hamur</option>
-                <option value="thick">Kalın Hamur</option>
-                <option value="stuffed">Dolgu Hamur</option>
-              </select>
-            </div>
+            <select className="border rounded-md p-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#CE2829]">
+              <option value="" disabled>
+                Select an option
+              </option>
+              <option value="thin">İnce Hamur</option>
+              <option value="thick">Kalın Hamur</option>
+              <option value="stuffed">Dolgu Hamur</option>
+            </select>
           </div>
         </div>
-        <div>
-          <h1 className="font-bold text-xl mt-12">
+        <div className="w-full mt-12">
+          <h1 className="font-bold text-xl">
             Ek Malzemeler <span className="text-[#CE2829]">*</span>
           </h1>
-          <div></div>
+          <p>En fazla 10 malzeme ekleyebilirsiniz. 5TL</p>
+          <div className="grid grid-cols-3 gap-5 mt-10">
+            {ingredients.map((item) => (
+              <div key={item} className="flex items-center justify-start gap-2 hover:cursor-pointer hover:bg-gray-200 p-3 rounded-lg ">
+                <input
+                  type="checkbox"
+                  id={item}
+                  name={item}
+                  value={item}
+                  onChange={() => setChecked(!checked)}
+                  className="mr-2 w-10 h-10"
+                />
+                <label htmlFor={item}>{item}</label>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="w-full mt-12">
+          <h1 className="font-bold text-xl">
+            Siparis Notu <span className="text-[#CE2829]">*</span>
+          </h1>
+          <input
+            className="mt-6 w-full h-14 border rounded-md p-2"
+            placeholder="Siparişine eklemek istediğin bir not var mı?"
+          />
         </div>
       </form>
+      <hr className="w-[590px] mt-10" />
+      <div className="w-[590px] mt-10 flex gap-10">
+        <div className="w-44 h-14 flex border rounded-md overflow-hidden">
+          <button className="w-1/3 h-full bg-[#FDC913]">+</button>
+          <p className="w-1/3 h-full flex justify-center items-center">1</p>
+          <button className="w-1/3 h-full bg-[#FDC913]">-</button>
+        </div>
+        <div className="w-full h-[255px] bg-[#FAF7F2] py-11 px-12">
+          <h1>Sepet Toplamı</h1>
+          <div className="flex justify-between mt-5">
+            <p>Secimler</p>
+            <p>25.90</p>
+          </div>
+          <div className="flex justify-between mt-5">
+            <p className="text-[#CE2829] font-bold">Toplam</p>
+            <p className="text-[#CE2829] font-bold">125.90</p>
+          </div>
+          <button className="w-full h-14 bg-[#FDC913] rounded-md mt-10 text-white">
+            Siparis Olustur
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

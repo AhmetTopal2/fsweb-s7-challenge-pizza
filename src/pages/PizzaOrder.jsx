@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import OrderForm from "../components/OrderForm";
+import Footer from "../components/Footer";
 
 function PizzaOrder() {
   return (
@@ -11,6 +12,7 @@ function PizzaOrder() {
         <Hero />
       </div>
       <OrderForm />
+      <Footer />
     </>
   );
 }
