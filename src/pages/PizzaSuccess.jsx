@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import OrderSuc from "../components/OrderSuc";
 
 function PizzaSuccess() {
   return (
-    <div>PizzaSuccess</div>
-  )
+    <>
+      <div className="h-svh">
+        <Header />
+        <OrderSuc />
+      </div>
+      <Footer />
+    </>
+  );
 }
 
-export default PizzaSuccess
+export default PizzaSuccess;
