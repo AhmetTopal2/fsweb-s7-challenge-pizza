@@ -5,33 +5,24 @@ import icon3 from "../../Assets/Iteration-2-aseets/icons/3.svg";
 import icon4 from "../../Assets/Iteration-2-aseets/icons/4.svg";
 import icon5 from "../../Assets/Iteration-2-aseets/icons/5.svg";
 import icon6 from "../../Assets/Iteration-2-aseets/icons/6.svg";
+
 function Icons() {
+  const icons = [
+    { id: 1, src: icon1, label: "Kore" },
+    { id: 2, src: icon2, label: "Pizza" },
+    { id: 3, src: icon3, label: "Burger" },
+    { id: 4, src: icon4, label: "Kızartmalar" },
+    
+  ];
+
   return (
     <div className="flex gap-16 justify-center py-7">
-      <div className="flex gap-3 items-center">
-        <img src={icon1} alt="" />
-        <h2 className=""> Kore</h2>
-      </div>
-      <div className="flex gap-3 items-center">
-        <img src={icon2} alt="" />
-        <p>Pizza</p>
-      </div>
-      <div className="flex gap-3 items-center">
-        <img src={icon3} alt="" />
-        <p>Burger</p>
-      </div>
-      <div className="flex gap-3 items-center">
-        <img src={icon4} alt="" />
-        <p>Kızartmalar</p>
-      </div>
-      <div className="flex gap-3 items-center">
-        <img src={icon5} alt="" />
-        <p>Fast food</p>
-      </div>
-      <div className="flex gap-3 items-center">
-        <img src={icon6} alt="" />
-        <p>Gazlı İçecek</p>
-      </div>
+      {icons.map((icon) => (
+        <div key={icon.id} className="flex gap-3 items-center">
+          <img src={icon.src} alt={icon.label} />
+          <p>{icon.label}</p>
+        </div>
+      ))}
     </div>
   );
 }

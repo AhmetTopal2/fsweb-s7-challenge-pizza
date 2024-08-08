@@ -6,6 +6,12 @@ import pizza3 from "../../Assets/Iteration-2-aseets/pictures/pizza-3.jpg";
 import ramen1 from "../../Assets/Iteration-2-aseets/pictures/ramen1.jpg";
 import ramen2 from "../../Assets/Iteration-2-aseets/pictures/ramen2.jpg";
 import ramen3 from "../../Assets/Iteration-2-aseets/pictures/ramen3.jpg";
+import burger1 from "../../Assets/Iteration-2-aseets/pictures/burger1.jpg";
+import burger2 from "../../Assets/Iteration-2-aseets/pictures/burger2.jpg";
+import burger3 from "../../Assets/Iteration-2-aseets/pictures/burger3.jpg";
+import kizartma1 from "../../Assets/Iteration-2-aseets/pictures/kizartma1.jpg";
+import kizartma2 from "../../Assets/Iteration-2-aseets/pictures/kizartma2.jpg";
+import kizartma3 from "../../Assets/Iteration-2-aseets/pictures/kizartma3.jpg";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function Products({ selectedCategory, setSelectedProduct }) {
   const history = useHistory();
@@ -73,7 +79,7 @@ function Products({ selectedCategory, setSelectedProduct }) {
       price: "40TL",
       rating: "4.8",
       reviews: "(110)",
-      image: "https://picsum.photos/200/300?burger1",
+      image: burger1,
       category: "Burger",
     },
     {
@@ -82,7 +88,7 @@ function Products({ selectedCategory, setSelectedProduct }) {
       price: "55TL",
       rating: "4.9",
       reviews: "(95)",
-      image: "https://picsum.photos/200/300?burger2",
+      image: burger2,
       category: "Burger",
     },
     {
@@ -91,7 +97,7 @@ function Products({ selectedCategory, setSelectedProduct }) {
       price: "45TL",
       rating: "4.7",
       reviews: "(120)",
-      image: "https://picsum.photos/200/300?burger3",
+      image: burger3,
       category: "Burger",
     },
     // French fries items
@@ -101,7 +107,7 @@ function Products({ selectedCategory, setSelectedProduct }) {
       price: "20TL",
       rating: "4.9",
       reviews: "(150)",
-      image: "https://picsum.photos/200/300?fries1",
+      image: kizartma1,
       category: "French fries",
     },
     {
@@ -110,7 +116,7 @@ function Products({ selectedCategory, setSelectedProduct }) {
       price: "25TL",
       rating: "4.8",
       reviews: "(140)",
-      image: "https://picsum.photos/200/300?fries2",
+      image: kizartma2,
       category: "French fries",
     },
     {
@@ -119,64 +125,8 @@ function Products({ selectedCategory, setSelectedProduct }) {
       price: "30TL",
       rating: "4.7",
       reviews: "(130)",
-      image: "https://picsum.photos/200/300?fries3",
+      image: kizartma3,
       category: "French fries",
-    },
-    // Fast food items
-    {
-      id: 13,
-      name: "Hot Dog",
-      price: "35TL",
-      rating: "4.7",
-      reviews: "(150)",
-      image: "https://picsum.photos/200/300?fastfood1",
-      category: "Fast food",
-    },
-    {
-      id: 14,
-      name: "Chicken Nuggets",
-      price: "40TL",
-      rating: "4.8",
-      reviews: "(160)",
-      image: "https://picsum.photos/200/300?fastfood2",
-      category: "Fast food",
-    },
-    {
-      id: 15,
-      name: "Onion Rings",
-      price: "25TL",
-      rating: "4.6",
-      reviews: "(170)",
-      image: "https://picsum.photos/200/300?fastfood3",
-      category: "Fast food",
-    },
-    // Soft drinks items
-    {
-      id: 16,
-      name: "Coca Cola",
-      price: "10TL",
-      rating: "4.9",
-      reviews: "(500)",
-      image: "https://picsum.photos/200/300?drink1",
-      category: "Soft drinks",
-    },
-    {
-      id: 17,
-      name: "Fanta",
-      price: "10TL",
-      rating: "4.8",
-      reviews: "(450)",
-      image: "https://picsum.photos/200/300?drink2",
-      category: "Soft drinks",
-    },
-    {
-      id: 18,
-      name: "Sprite",
-      price: "10TL",
-      rating: "4.7",
-      reviews: "(400)",
-      image: "https://picsum.photos/200/300?drink3",
-      category: "Soft drinks",
     },
   ];
 
@@ -193,7 +143,7 @@ function Products({ selectedCategory, setSelectedProduct }) {
             className="bg-white cursor-pointer"
             onClick={() => {
               food.category !== "Pizza"
-                ? alert('Sectiginiz Urun Mevcut Degil')
+                ? alert("Sectiginiz Urun Mevcut Degil")
                 : (setSelectedProduct(food), history.push("/pizzaOrder"));
             }}
           >

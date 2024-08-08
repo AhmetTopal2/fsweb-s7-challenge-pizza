@@ -24,7 +24,7 @@ function Frame1({ setSelectedProduct }) {
 
   const handleClick = () => {
     setSelectedProduct(speacialPizza);
-    history.push("/pizzaOrder")
+    history.push("/pizzaOrder");
   };
 
   const icons = [
@@ -32,8 +32,6 @@ function Frame1({ setSelectedProduct }) {
     { id: 2, src: icon2, label: "Pizza" },
     { id: 3, src: icon3, label: "Burger" },
     { id: 4, src: icon4, label: "French fries" },
-    { id: 5, src: icon5, label: "Fast food" },
-    { id: 6, src: icon6, label: "Soft drinks" },
   ];
 
   return (
@@ -48,7 +46,7 @@ function Frame1({ setSelectedProduct }) {
           </p>
           <button
             className="w-[150px] h-14 bg-white mt-6 ml-8 rounded-3xl text-[#CE2829] font-bold"
-            onClick={handleClick }
+            onClick={handleClick}
           >
             Siparis Ver
           </button>
@@ -58,7 +56,10 @@ function Frame1({ setSelectedProduct }) {
             <h1 className="text-[32px] font-bold text-white mt-8 ml-8 ">
               Hackathlon <br /> Burger Menü
             </h1>
-            <button className="w-[150px] h-14 bg-white mt-4 ml-8 rounded-3xl text-[#CE2829] font-bold" onClick={handleClick}>
+            <button
+              className="w-[150px] h-14 bg-white mt-4 ml-8 rounded-3xl text-[#CE2829] font-bold"
+              onClick={handleClick}
+            >
               Siparis Ver
             </button>
           </div>
@@ -69,7 +70,10 @@ function Frame1({ setSelectedProduct }) {
                 Çoooook hızlı
               </strong> <br /> npm gibi kurye{" "}
             </h1>
-            <button className="w-[150px] h-14 bg-white mt-4 ml-8 rounded-3xl text-[#CE2829] font-bold" onClick={handleClick}>
+            <button
+              className="w-[150px] h-14 bg-white mt-4 ml-8 rounded-3xl text-[#CE2829] font-bold"
+              onClick={handleClick}
+            >
               Siparis Ver
             </button>
           </div>
