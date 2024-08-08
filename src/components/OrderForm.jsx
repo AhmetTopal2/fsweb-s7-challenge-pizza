@@ -1,8 +1,11 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-function OrderForm() {
+function OrderForm({ selectedProduct , setOrder }) {
+  const { price , name } = selectedProduct;
+  const history = useHistory()
   const ingredients = [
     "Pepperoni",
     "Tavuk Izgara",
@@ -23,12 +26,14 @@ function OrderForm() {
 
   const formik = useFormik({
     initialValues: {
+      productName : name,
       size: "",
       dough: "",
       ingredients: [],
       note: "",
-      basePrice: 25.90,
+      basePrice: Number(price),
       quantity: 1,
+      total: 0,
     },
     validationSchema: Yup.object({
       size: Yup.string().required("Boyut seçimi zorunludur"),
@@ -36,19 +41,24 @@ function OrderForm() {
       ingredients: Yup.array()
         .max(10, "En fazla 10 malzeme seçebilirsiniz")
         .required("En az bir malzeme seçmelisiniz"),
-      note: Yup.string().max(200, "Sipariş notu en fazla 200 karakter olabilir"),
+      note: Yup.string().max(
+        200,
+        "Sipariş notu en fazla 200 karakter olabilir"
+      ),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       console.log(values);
+      setOrder(values);
       formik.resetForm();
-
+      setTimeout(()=>{history.push('/pizzaSuccess')},4000)
+      
     },
   });
 
   const calculateTotal = () => {
-    const ingredientCost = formik.values.ingredients.length * 5;
-    const total = (formik.values.basePrice + ingredientCost) * formik.values.quantity;
+    const ingredientCost = Number(formik.values.ingredients.length * 5);
+    const total = formik.values.quantity * (Number(price) + ingredientCost);
+    formik.values.total = total;
     return total;
   };
 
@@ -77,7 +87,9 @@ function OrderForm() {
                   type="button"
                   onClick={() => formik.setFieldValue("size", size)}
                   className={`w-[56px] h-[56px] border rounded-full ${
-                    formik.values.size === size ? "bg-[#CE2829] text-white" : "bg-[#FAF7F2]"
+                    formik.values.size === size
+                      ? "bg-[#CE2829] text-white"
+                      : "bg-[#FAF7F2]"
                   }`}
                 >
                   {size}
@@ -102,9 +114,9 @@ function OrderForm() {
               <option value="" disabled>
                 Select an option
               </option>
-              <option value="thin">İnce Hamur</option>
-              <option value="thick">Kalın Hamur</option>
-              <option value="stuffed">Dolgu Hamur</option>
+              <option value="İnce">İnce Hamur</option>
+              <option value="Kalın">Kalın Hamur</option>
+              <option value="Dolgu">Dolgu Hamur</option>
             </select>
             {formik.touched.dough && formik.errors.dough ? (
               <div className="text-red-500 mt-2">{formik.errors.dough}</div>
@@ -118,7 +130,10 @@ function OrderForm() {
           <p>En fazla 10 malzeme ekleyebilirsiniz. 5TL</p>
           <div className="grid grid-cols-3 gap-5 mt-10">
             {ingredients.map((item) => (
-              <div key={item} className="flex items-center justify-start gap-2 hover:cursor-pointer hover:bg-gray-200 p-3 rounded-lg ">
+              <div
+                key={item}
+                className="flex items-center justify-start gap-2 hover:cursor-pointer hover:bg-gray-200 p-3 rounded-lg "
+              >
                 <input
                   type="checkbox"
                   id={item}
@@ -152,7 +167,10 @@ function OrderForm() {
             <div className="text-red-500 mt-2">{formik.errors.note}</div>
           ) : null}
         </div>
-        <button type="submit" className="w-full h-14 bg-[#FDC913] rounded-md mt-10 text-white">
+        <button
+          type="submit"
+          className="w-full h-14 bg-[#FDC913] rounded-md mt-10 text-white"
+        >
           Siparis Olustur
         </button>
       </form>
@@ -166,7 +184,9 @@ function OrderForm() {
           >
             +
           </button>
-          <p className="w-1/3 h-full flex justify-center items-center">{formik.values.quantity}</p>
+          <p className="w-1/3 h-full flex justify-center items-center">
+            {formik.values.quantity}
+          </p>
           <button
             type="button"
             onClick={decrementQuantity}
@@ -175,7 +195,7 @@ function OrderForm() {
             -
           </button>
         </div>
-        <div className="w-full h-[255px] bg-[#FAF7F2] py-11 px-12">
+        <div className="w-full h-full bg-[#FAF7F2] py-11 px-12">
           <h1>Sepet Toplamı</h1>
           <div className="flex justify-between mt-5">
             <p>Secimler</p>
@@ -183,11 +203,8 @@ function OrderForm() {
           </div>
           <div className="flex justify-between mt-5">
             <p className="text-[#CE2829] font-bold">Toplam</p>
-            <p className="text-[#CE2829] font-bold">{calculateTotal().toFixed(2)} TL</p>
+            <p className="text-[#CE2829] font-bold">{calculateTotal()} TL</p>
           </div>
-          <button type="submit" className="w-full h-14 bg-[#FDC913] rounded-md mt-10 text-white">
-            Siparis Olustur
-          </button>
         </div>
       </div>
     </div>

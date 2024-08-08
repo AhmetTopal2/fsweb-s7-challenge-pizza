@@ -4,14 +4,14 @@ import Hero from "../components/Hero";
 import OrderForm from "../components/OrderForm";
 import Footer from "../components/Footer";
 
-function PizzaOrder() {
+function PizzaOrder({selectedProduct , setOrder}) {
   return (
     <>
       <Header />
       <div className="bg-[#FAF7F2] flex justify-center">
-        <Hero />
+        <Hero selectedProduct={selectedProduct}/>
       </div>
-      <OrderForm />
+      <OrderForm selectedProduct={selectedProduct} setOrder={setOrder} />
       <Footer />
     </>
   );

@@ -3,12 +3,13 @@ import HomeBanner from "../components/HomeBanner";
 import Icons from "../components/Icons";
 import Footer from "../components/Footer";
 import Frame1 from "../components/Frame1";
-function Home() {
+function Home({setSelectedProduct}) {
+  
   return (
     <>
-      <HomeBanner />
+      <HomeBanner setSelectedProduct={setSelectedProduct} />
       <Icons />
-      <Frame1 />
+      <Frame1 setSelectedProduct={setSelectedProduct}/>
       <Footer />
     </>
   );
